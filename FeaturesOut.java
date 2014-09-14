@@ -17,7 +17,7 @@ public class FeaturesOut{
 		String filePath2 = "FeaturesToDelete.txt";
 		BufferedReader br,br2;
 		String line = "";
-
+		//HashMap as a fastest data structure for the task
 		HashMap<String,String> numbers = new HashMap<String,String>();
 		
 		try {
@@ -27,7 +27,7 @@ public class FeaturesOut{
 			try {
 				while((line = br.readLine()) != null)
 				{
-					//Splits single line into words
+					//Splits single line into words to retrieve UDP for search and deletion 
 					String[] words = line.split(",",-1);//adress empty col with -1
 					String UDP = words[0];
 					String a = words[1];
@@ -38,7 +38,7 @@ public class FeaturesOut{
 					numbers.put(UDP, rest);
 
 				}
-				
+				//check how many records were added to the HashMap
 				System.out.println("Before Delete: "+ numbers.size());
 				
 				while((line = br2.readLine()) != null)
@@ -55,7 +55,8 @@ public class FeaturesOut{
 			}
 
 			/*Write numbers to file */
-			
+			//Check how many records remains in the Hashmap and 
+			//indicates the file where those records are stored
 			System.out.println("After Delete: "+ numbers.size());
 			System.out.println("File named 'WithoutToDelete.txt' "
 					+ "\nwith remaining data is in the project root");
@@ -87,7 +88,6 @@ public class FeaturesOut{
 			}
 			// lastly, close the file and end
 			out.close();
-
 			br.close();
 			br2.close();
 
