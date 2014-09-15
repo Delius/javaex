@@ -1,6 +1,8 @@
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,15 +11,51 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+
 public class FeaturesOut{
+	
+
 
 	public static void main(String[] args)
 	{
+		//Display Console with the Delete button
+		final JLabel label;
+		 
+		   JButton button;
+
+		   
+		      label = new JLabel("Console application that deletes the \ngiven features and saves the results into a new file");
+		     
+		      button = new JButton("Delete records");
+		      JFrame frame = new JFrame("Console application");
+		      frame.setLayout(new FlowLayout());
+		      frame.setSize(600,150);
+		      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		      button.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent ae) {
+		            performDelete();
+		         }
+		      });
+		      
+		      frame.add(label);
+		      frame.add(button);
+		      
+		      frame.setVisible(true);
+	}
+		   
+	
+	//Method to delete given records from dataset
+		private static void performDelete (){
+
 		String filePath = "Features.txt";
 		String filePath2 = "FeaturesToDelete.txt";
 		BufferedReader br,br2;
 		String line = "";
-		//HashMap as a fastest data structure for the task
+		//HashMap as a fastest data structure for the big data files
 		HashMap<String,String> numbers = new HashMap<String,String>();
 		
 		try {
