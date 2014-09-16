@@ -44,7 +44,7 @@ public class FeaturesOut{
 		      frame.add(label);
 		      frame.add(button);
 		      
-		      frame.setVisible(true);
+		      frame.setVisible(false);//make it true
 	}
 		   
 	
